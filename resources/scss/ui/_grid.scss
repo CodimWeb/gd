@@ -1,0 +1,106 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#root {
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    height: calc(100% - 6rem);
+    background: url(../img/main-bg-1920.png) no-repeat center center /cover #101625;
+}
+
+.wrapper.open-verify {
+    height: calc(100% - 9.8rem);
+}
+
+.wrapper.no-bg {
+    background: #101625;
+}
+
+.content {
+    margin-right: 0;
+    height: 100%;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+    .content {
+        scrollbar-width: auto;
+        scrollbar-color: #ccc #101625;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #101625;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+    }
+}
+
+.content.auth {
+    margin-right: 1.5rem;
+}
+
+.content.auth.open {
+    margin-right: 24rem;
+}
+
+.container, .container-fluid {
+    padding: 0 1.5rem;
+}
+
+.row {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
+
+.row > * {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 120rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .content.auth.open {
+        margin-right: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .content.auth {
+        margin-right: 0;
+    }
+
+    .content.auth.open {
+        margin-right: 0;
+    }
+
+    .wrapper.open-verify {
+        height: calc(100% - 11.2rem);
+    }
+}
+

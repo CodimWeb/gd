@@ -1,0 +1,146 @@
+.cabinet-nav {
+    position: fixed;
+    left: 0;
+    top: 6rem;
+    bottom: 0;
+    width: 47.5rem;
+    //height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.open-verify .cabinet-nav {
+    top: 9.8rem;
+}
+
+.cabinet-nav__content {
+    background: #171C26;
+    padding-top: 5.6rem;
+    width: 100%;
+    height: 100%;
+}
+
+.cabinet__user-photo {
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.2rem;
+    cursor: pointer;
+}
+
+.cabinet__user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cabinet__user-photo input {
+    display: none;
+}
+
+.cabinet__load-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #97ADDC;
+}
+
+.cabinet__load-avatar .icon {
+    font-size: 3.7rem;
+    color: #2F384C;
+}
+
+
+.cabinet__user-name {
+    font-family: $exo-700;
+    font-size: 2.7rem;
+    line-height: 3.2rem;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto 2rem;
+}
+
+.cabinet-nav__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cabinet-nav__list__link {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem 1rem 12rem;
+    font-family: $exo-700;
+    font-size: 2rem;
+    line-height: 2.4rem;
+    color: #97ADDC;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.cabinet-nav__list__link .icon {
+    font-size: 2.2rem;
+    color: #97ADDC;
+    margin-right: 1rem;
+    transition: 0.2s ease-in-out;
+}
+
+.cabinet-nav__list__link.active {
+    background: #1E2536;
+    color: #fff;
+}
+
+.cabinet-nav__list__link.active .icon {
+    color: #fff;
+}
+
+@media (max-width: 1399px) {
+    .cabinet-nav {
+        width: 40rem;
+    }
+
+    .cabinet-nav__list__link {
+        padding: 1rem 2rem 1rem 8rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .cabinet-nav {
+        display: none;
+        z-index: 10;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .cabinet-nav__content {
+        width: 40rem;
+        height: 100%;
+    }
+
+    .cabinet-nav.open {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .cabinet-nav__content {
+        width: 100%;
+    }
+
+    .cabinet-nav__list__link {
+        padding: 1rem 2rem 1rem 4rem;
+    }
+
+    .cabinet .crop-container {
+        padding: 0 1rem;
+    }
+}
+

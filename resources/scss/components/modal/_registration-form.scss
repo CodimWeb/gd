@@ -1,0 +1,46 @@
+.registration-form {
+    margin-top: 3.5rem;
+}
+
+.registration-form__accept {
+    margin-top: 3rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    color: #97ADDC;
+    text-align: center;
+    margin-bottom: 4.5rem;
+}
+
+.registration-form__accept a {
+    text-decoration: underline;
+}
+
+.registration-form__birthday {
+    display: flex;
+}
+
+.birthday {
+    margin-right: 1rem;
+}
+
+.birthday--day {
+    width: 11rem;
+}
+
+.birthday--month {
+    width: 12rem;
+}
+
+.birthday--year {
+    width: 10rem;
+}
+
+@media (max-width: 767px) {
+    .birthday--day {
+        width: 8.4rem;
+    }
+
+    .birthday--month {
+        width: 11rem;
+    }
+}

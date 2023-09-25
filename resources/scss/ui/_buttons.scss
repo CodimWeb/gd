@@ -1,0 +1,102 @@
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: $exo-700;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 0.1rem solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    outline: none;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-aqua {
+    //background: linear-gradient(90deg, #18C5DF 0%, #4284DB 50%, #29EAC4 100%);
+    //background-size: 200%;
+    //background-position: 0, 0;
+    background: #18C5DF;
+    border: none;
+    padding: 1.1rem 2.6rem;
+    transition: background-position 0.15s ease-in-out;
+
+    &:hover {
+        background: linear-gradient(90deg, #4284DB 0, #29EAC4 100%);
+        //background-position: 100%, 0;
+    }
+}
+
+.btn-ghost {
+    color: #97ADDC;
+    background: transparent;
+    border-color: #97ADDC;
+
+    &:hover {
+        color: #18C5DF;
+        border-color: #18C5DF;
+    }
+}
+
+.btn-collapse-toggle {
+    display: block;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+    text-transform: none;
+    font-family: $exo-500;
+    padding: 0;
+}
+
+
+.btn-aqua-gradient {
+    background: linear-gradient(90deg, #4284DB 0%, #29EAC4 50%, #4284DB 100%);
+    background-size: 200%;
+    background-position: 0, 0;
+    border: none;
+    padding: 1.1rem 2.6rem;
+    transition: background-position 0.15s ease-in-out;
+
+    &:hover {
+        background-position: 100%, 0;
+    }
+}
+
+.btn-aqua-gradient-ghost {
+    background-image: linear-gradient(90deg, #4284DB 0%, #29EAC4 50%, #4284DB 100%);
+    background-size: 200%;
+    background-position: 0, 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    padding: 1rem 2.6rem;
+    border-image: linear-gradient(90deg, #4284DB, #29EAC4) 15;
+    border-width: 0.1rem;
+    border-style: solid;
+    transition: background-position 0.15s ease-in-out;
+
+
+    &:hover {
+        background-position: 100%, 0;
+    }
+}
+
+.btn-cancel {
+    background: #DA3741;
+    border: none;
+    padding: 1.1rem 2.5rem;
+
+    &:hover {
+        background: linear-gradient(180deg, #DA3741 0%, #B5212A 100%);
+    }
+}

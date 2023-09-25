@@ -1,0 +1,56 @@
+
+//@import "../../node_modules/bootstrap/scss/bootstrap";
+//@import "~bootstrap/scss/bootstrap";
+
+// BS Abstract
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+//BS reboot
+@import "../../node_modules/bootstrap/scss/reboot";
+// BS grid
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+// BS components
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/dropdown";
+
+// plugins
+@import "../../node_modules/react-toastify/dist/ReactToastify.css";
+
+// custom style
+@import "base/variables";
+
+@import "fonts/icomoon";
+
+@import "fonts/fonts";
+
+@import "ui/typography";
+@import "ui/grid";
+@import "ui/buttons";
+@import "ui/input";
+@import "ui/select";
+@import "ui/icons";
+@import "ui/base-dropdown";
+
+@import "components/header";
+@import "components/verify-notify";
+@import "components/main-banner";
+@import "components/task-list";
+@import "components/sidebar";
+@import "components/modal/modal";
+@import "components/modal/registration-form";
+@import "components/cabinet/cabinet-nav";
+@import "components/toast";
+@import "components/page-loader";
+
+@import "pages/task-detail";
+@import "pages/create-task";
+@import "pages/chat";
+@import "pages/cabinet";
+@import "pages/user-detail";
+@import "pages/category";
+@import "pages/page-404";

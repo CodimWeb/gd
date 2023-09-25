@@ -1,0 +1,36 @@
+.category__title {
+    text-align: center;
+    margin: 3rem 0 5rem;
+}
+
+.paggination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100rem;
+    list-style-type: none;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.paggination li {
+    margin: 0.3rem;
+}
+
+.paggination a {
+    display: block;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    line-height: 2.4rem;
+    vertical-align: middle;
+    text-align: center;
+    background: #171C26;
+    border: 0.1rem solid #18C5DF;
+    border-radius: 0.3rem;
+    text-decoration: none;
+
+    &.active {
+        background: #18C5DF;
+    }
+}

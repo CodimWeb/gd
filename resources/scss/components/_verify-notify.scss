@@ -1,0 +1,49 @@
+.verify-notify {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #FF8E3C 0%, #E6670B 100%);
+    padding: 0.8rem 0 0.8rem 23rem;
+    cursor: pointer;
+}
+
+.verify-notify .icon {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-right: 1rem;
+}
+
+.verify-notify p {
+    font-family: $exo-700;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.verify-notify span {
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .verify-notify {
+        padding-left: 4.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .verify-notify {
+        padding: 0.8rem 2rem;
+        height: 5.2rem;
+    }
+
+    .verify-notify p {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+}
+

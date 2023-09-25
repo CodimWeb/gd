@@ -1,0 +1,122 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #97ADDC!important;
+    -webkit-box-shadow: 0 0 0px 1000px #171C26 inset!important;
+    box-shadow: 0 0 0 1000px #171C26 inset!important;
+    transition: background-color 5000s ease-in-out 0s!important;
+    caret-color: #fff!important;
+}
+
+.form-group {
+    padding-bottom: 2.5rem;
+    position: relative;
+}
+
+.form-label {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    margin-bottom: 1rem;
+    color: #97ADDC;
+}
+
+.form-control {
+    height: 45px;
+    background: #171C26;
+    border: 0.1rem solid #2F384C;
+    border-radius: 0.6rem;
+    color: #97ADDC;
+    font-size: 1.4rem;
+    padding: 0 0.9rem;
+    box-shadow: none;
+    font-weight: 500;
+
+    &:focus {
+        border-color: #18C5DF;
+        color: #97ADDC;
+        box-shadow: none;
+    }
+}
+
+.form-control-group {
+    position: relative;
+}
+
+.form-control-with-icon {
+    padding-right: 3.7rem;
+}
+
+.form-control-group .icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem;
+}
+
+.form-group.error .form-label {
+    color: #DA3741;
+}
+
+.form-group.error .form-control {
+    border-color: #DA3741;
+    color: #DA3741;
+    -webkit-text-fill-color: #DA3741!important;
+}
+
+.form-group.error .icon {
+    color: #DA3741;
+}
+
+.form-group__message {
+    position: absolute;
+    left: 0;
+    bottom: 0.5rem;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #DA3741;
+}
+
+.form-group.success .form-label {
+    color: #59B538;
+}
+
+.form-group.success .form-control {
+    border-color: #59B538;
+    color: #59B538;
+    -webkit-text-fill-color: #59B538!important;
+}
+
+.form-group.success .icon {
+    color: #59B538;
+}
+
+textarea.form-control {
+    height: auto;
+    resize: none;
+    padding: 1rem;
+}
+
+.form-control.color-white {
+    color: #fff;
+
+    &:focus {
+        color: #fff;
+    }
+}
+
+.form-control.text-lg {
+    font-size: 1.8rem;
+}
+
+@media (max-width: 991px) {
+    .form-control {
+        height: 3.8rem;
+    }
+}

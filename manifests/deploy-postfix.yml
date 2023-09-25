@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postfix-config
+data:
+  main.cf: |
+    smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
+    biff = no
+    append_dot_mydomain = no
+    readme_directory = no
+    compatibility_level = 2
+    smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+    smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+    smtpd_tls_security_level=may
+    smtp_tls_CApath=/etc/ssl/certs
+    smtp_tls_security_level=none
+    smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+    myhostname = email.game-do.com
+    mydestination = $myhostname, localhost, localhost.localdomain, , localhost
+    relayhost =
+    mynetworks = 0.0.0.0/0 [::]/0
+    mailbox_command = procmail -a "$EXTENSION"
+    inet_interfaces = all
+    inet_protocols = all
+    maillog_file = /dev/stdout
+    smtpd_sender_restrictions=check_sender_access pcre:/etc/postfix/sender_access.pcre
+  sender_access.pcre: |
+    /^0\.0\.0\.0$/ OK
+    /^192\.168\.1\.1$/ OK
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postfix-service
+spec:
+  selector:
+    app: game-do-app
+  ports:
+    - protocol: TCP
+      port: 465
+      targetPort: 465

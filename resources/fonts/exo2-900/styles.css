@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'exo2_0_black';
+  src: url(./exo2_0_black.ttf) format('truetype'),
+       url(./exo2_0_black.woff) format('woff'),
+       url(./exo2_0_black.woff2) format('woff2');
+}

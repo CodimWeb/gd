@@ -1,0 +1,12 @@
+maillog_file = /dev/stdout
+
+myhostname = mail.game-do.com
+
+compatibility_level = 9999
+
+smtpd_upstream_proxy_protocol = haproxy
+
+virtual_mailbox_domains = example.com
+virtual_mailbox_maps = lmdb:/etc/postfix/virtual
+virtual_alias_maps = lmdb:/etc/postfix/virtual
+virtual_transport = lmtp:dovecot.default.svc.cluster.local:24

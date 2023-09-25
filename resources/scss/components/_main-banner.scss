@@ -1,0 +1,127 @@
+.main-banner {
+    position: relative;
+    height: 50rem;
+    background: url("../img/main-banner.jpg") no-repeat center top /cover;
+}
+
+.main-banner__content {
+    padding-top: 16rem;
+}
+
+.main-banner__title {
+    font-family: $exo-900;
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.main-banner__subtitle {
+    text-align: center;
+    margin-bottom: 3.7rem;
+}
+
+.main-banner__category {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-category .dropdown-toggle {
+    min-width: 20rem;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-family: $exo-500;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #6E869E;
+    background: #171C26;
+    border: 0.1rem solid #6E869E;
+    border-radius: 6px;
+    text-transform: none;
+
+    &:after {
+        content: none;
+    }
+}
+
+.dropdown-category .dropdown-toggle.show .icon-arrow-down {
+    transform: rotateZ(180deg);
+}
+
+.dropdown-category .dropdown-menu {
+    min-width: 20rem;
+    background: #171C26;
+    border: 0.1rem solid #2F384C;
+    border-radius: 0.6rem;
+    padding: 0.5rem 0;
+    margin-top: 0.3rem;
+}
+
+.dropdown-category .dropdown-item {
+    padding: 0;
+    margin-bottom: 0;
+
+    &.active,
+    &:active {
+        background: transparent;
+    }
+}
+
+.dropdown-category__link {
+    display: block;
+    font-family: $exo-500;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #6E869E;
+    padding: 0.3rem 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.main-banner__icon {
+    text-align: center;
+    margin: 4.7rem 0 0;
+}
+
+.main-banner__icon .icon {
+    font-size: 4rem;
+}
+
+.main-banner__shadow {
+    height: 4.8rem;
+    position: relative;
+    margin-top: -2.4rem;
+    background: linear-gradient(90deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
+    filter: blur(18.5px);
+}
+
+@media (max-width: 767px) {
+    .main-banner {
+        height: 32rem;
+    }
+
+    .main-banner__content {
+        padding-top: 5.2rem;
+    }
+
+    .main-banner__title {
+        font-size: 3.6rem;
+        line-height: 4.3rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .main-banner__subtitle {
+        font-size: 1.6rem;
+        line-height: 2.3rem;
+        max-width: 28rem;
+        margin: 0 auto 2rem;
+    }
+}

@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'exo2-regular';
+    src: url("../fonts/exo2-400/exo2_0_regular.woff2") format('woff2'),
+    url("../fonts/exo2-400/exo2_0_regular.woff") format('woff'),
+    url("../fonts/exo2-400/exo2_0_regular.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'exo2-medium';
+    src: url('../fonts/exo2-500/exo2_0_medium.woff2') format('woff2'),
+    url('../fonts/exo2-500/exo2_0_medium.woff') format('woff'),
+    url('../fonts/exo2-500/exo2_0_medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'exo2-bold';
+    src: url('../fonts/exo2-700/exo2_0_bold.woff2') format('woff2'),
+    url('../fonts/exo2-700/exo2_0_bold.woff') format('woff'),
+    url('../fonts/exo2-700/exo2_0_bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'exo2-extrabold';
+    src: url('../fonts/exo2-800/exo2_0_extrabold.woff2') format('woff2'),
+    url('../fonts/exo2-800/exo2_0_extrabold.woff') format('woff'),
+    url('../fonts/exo2-800/exo2_0_extrabold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'exo2-black';
+    src: url('../fonts/exo2-900/exo2_0_black.woff2') format('woff2'),
+    url('../fonts/exo2-900/exo2_0_black.woff') format('woff'),
+    url('../public/fonts/exo2-900/exo2_0_black.ttf') format('truetype');
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: $exo-500;
+    font-size: 1.6rem;
+    color: #fff;
+    background: #ccc;
+}

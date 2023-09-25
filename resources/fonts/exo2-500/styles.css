@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'exo2_0_medium';
+  src: url(./exo2_0_medium.ttf) format('truetype'),
+       url(./exo2_0_medium.woff) format('woff'),
+       url(./exo2_0_medium.woff2) format('woff2');
+}

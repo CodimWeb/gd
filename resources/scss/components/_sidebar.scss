@@ -1,0 +1,247 @@
+.sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    width: 24rem;
+    background: #171C26;
+    transform: translateX(22.5rem);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.btn-sidebar-toggle {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0;
+    border-radius: 50%;
+    background: #2F384C;
+    border: none;
+    position: absolute;
+    left: -1.2rem;
+    top: 4.5rem;
+    transform: rotateZ(90deg);
+}
+
+.open .btn-sidebar-toggle {
+    transform: rotateZ(-90deg);
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.sidebar-header {
+    padding: 1.4rem 1.4rem;
+}
+
+.sidebar-title {
+    font-family: $exo-700;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: #fff;
+}
+
+.sidebar-body {
+    flex: 1;
+    padding: 0 1.4rem;
+}
+
+@media (min-width: 768px) {
+    .sidebar-content {
+        scrollbar-width: auto;
+        scrollbar-color: #ccc #101625;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #101625;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 4px;
+            border: 1px solid transparent;
+        }
+    }
+}
+
+.sidebar-part__title {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    color: #97ADDC;
+    margin-bottom: 1rem;
+}
+
+.sidebar-part {
+    min-height: 20rem;
+    padding: 3rem 1rem 3rem 2rem;
+    position: relative;
+
+    &:first-child {
+        padding-top: 0;
+    }
+}
+
+.sidebar-part__link {
+    display: block;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-part__divider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.1rem;
+    background: linear-gradient(90deg, rgba(66, 132, 219, 0.09) 0%, #4284DB 49.79%, #29EAC4 57.6%, rgba(41, 234, 196, 0) 99.79%);;
+}
+
+.sidebar-collapse {
+    margin-bottom: 1rem;
+}
+
+.sidebar-collapse-toggle {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-right: 2.4rem;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-collapse-toggle .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar-collapse-toggle.open .icon {
+    color: #fff;
+    transform: translateY(-50%) rotateZ(180deg);
+}
+
+.sidebar-collapse-content {
+    padding: 1.5rem 0 0.5rem;
+}
+
+.sidebar-link-task {
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.7rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar-link-user {
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.7rem 0.5rem;
+}
+
+.sidebar-mobile-panel {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        transform: translateX(100%);
+        //right: -1000px;
+        background: #2F384C;
+    }
+
+    .sidebar.open {
+        //right: 0;
+        width: 100%;
+    }
+
+    .sidebar-body {
+        //overflow-y: auto;
+    }
+
+    .btn-sidebar-toggle {
+        display: none;
+    }
+
+    .sidebar-part {
+        min-height: 10rem;
+    }
+
+    .sidebar-mobile-panel {
+        display: block;
+        padding: 2.8rem 1.4rem 0;
+    }
+
+    .sidebar-mobile-user {
+        display: flex;
+        margin-right: 1.5rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .sidebar-mobile-user .header-user-avatar {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .sidebar-mobile-user .header-user-name {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        width: auto;
+    }
+
+    .sidebar-mobile-panel__logout {
+        margin-left: auto;
+    }
+
+    .sidebar-mobile-panel__logout .icon {
+        font-size: 2.5rem;
+    }
+
+    .sidebar-mobile-nav {
+        display: flex;
+        padding: 2.4rem 1.5rem;
+        align-items: center;
+        border-top: 0.1rem solid rgba(110, 134, 158, 0.4);
+        border-bottom: 0.1rem solid rgba(110, 134, 158, 0.4);
+    }
+
+    .sidebar-mobile-nav-link {
+        font-family: $exo-700;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        text-transform: uppercase;
+        color: #97ADDC;
+        margin-right: 1.5rem;
+        text-decoration: none;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .sidebar-mobile-nav-link.active {
+        color: #fff;
+    }
+}

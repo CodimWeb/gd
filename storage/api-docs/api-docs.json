@@ -1,0 +1,1370 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication & Registration"
+                ],
+                "summary": "User log in",
+                "description": "Returns user data with token",
+                "operationId": "login",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/LoginRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Authentication & Registration"
+                ],
+                "summary": "User registration",
+                "operationId": "register",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/RegisterRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "Authentication & Registration"
+                ],
+                "summary": "User log out",
+                "description": "Method revokes the current access token.",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reset-password-request": {
+            "post": {
+                "tags": [
+                    "Authentication & Registration"
+                ],
+                "summary": "User reset password request. Send email with reset link.",
+                "operationId": "resetPasswordRequest",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/RequestResetPasswordRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                }
+            }
+        },
+        "/api/reset-password": {
+            "post": {
+                "tags": [
+                    "Authentication & Registration"
+                ],
+                "summary": "User change password",
+                "operationId": "resetPassword",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ResetPasswordRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                }
+            }
+        },
+        "/api/task": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Create new task",
+                "operationId": "createTask",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TaskRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/{task_id}/edit": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Edit task",
+                "operationId": "editTask",
+                "parameters": [
+                    {
+                        "name": "task_id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TaskEditRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/statuses": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "All available task statuses",
+                "operationId": "getTaskStatuses",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/categories": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Categories list",
+                "operationId": "getCategories",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/categories": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Categories list with tasks",
+                "operationId": "getCategoriesWithTasks",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/list/all": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "All tasks list",
+                "operationId": "getAllTasks",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/list/{status}/all": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "All tasks list by status",
+                "operationId": "getAllTasksByStatus",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "example": "waiting"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/{id}/change-status": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Change task status",
+                "operationId": "changeStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/TaskStatusRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/{id}/close": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Close task",
+                "operationId": "closeTask",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/list/{category_id}": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "All tasks by category id",
+                "operationId": "getTasksByCategoryId",
+                "parameters": [
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/{id}": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Task by id",
+                "operationId": "getTaskById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/task/{id}/visitor": {
+            "get": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Task by id for auth users",
+                "operationId": "getTaskByIdForVisitor",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/offer/{id}/change-status": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Change offer status",
+                "operationId": "changeOfferStatus",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/OfferStatusRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/offer/{id}/accept": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Accept offer",
+                "operationId": "acceptOffer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/task/offer/{id}/reject": {
+            "post": {
+                "tags": [
+                    "Task"
+                ],
+                "summary": "Reject offer",
+                "operationId": "rejectOffer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User info",
+                "operationId": "getInfo",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User info",
+                "operationId": "updateInfo",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/UpdateUserRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User info by id",
+                "operationId": "getInfoById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                }
+            }
+        },
+        "/api/countries": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Countries info",
+                "operationId": "getCountries",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/user/change-password": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User changepassword",
+                "operationId": "changePassword",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ChangePasswordRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/avatar": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User set avatar",
+                "operationId": "setAvatar",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/AvatarRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/email-verify": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User verify email letter.",
+                "operationId": "verifyEmail",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/task/list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Tasks list by user",
+                "operationId": "getTasks",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/task/{status}/list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "All user tasks by status",
+                "operationId": "getTasksByStatus",
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "path",
+                        "required": true,
+                        "example": "waiting"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/task/{id}/offer": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add new offer to task",
+                "operationId": "addOffer",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/offer/list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Offers list by user",
+                "operationId": "getOffers",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/offer/remove/{id}": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remove user offer",
+                "operationId": "removeOfferById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/notification/list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "All notifications by user",
+                "operationId": "getNotifications",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/notification/read-all": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Read all user notifications",
+                "operationId": "markAllNotificationRead",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/notification/{id}/read": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Read 1 notification by ID",
+                "operationId": "markNotificationIdRead",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/chat/{id}/messages": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Chat messages by chat id",
+                "operationId": "getChatMessages",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/chat/{chat_id}/message": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Add message",
+                "operationId": "addChatMessages",
+                "parameters": [
+                    {
+                        "name": "chat_id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/AddMessageRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/chat/message/{message_id}/read": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Set message as read",
+                "operationId": "readChatMessage",
+                "parameters": [
+                    {
+                        "name": "message_id",
+                        "in": "path",
+                        "required": true,
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/chat/new-messages": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "All unread user messages",
+                "operationId": "getNewMessages",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "405": {
+                        "description": "Redirect to Log in"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/chat/message/read-all": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Read all user messages",
+                "operationId": "markAllMessagesRead",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "requestBodies": {
+            "LoginRequest": {
+                "description": "Login users.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "email",
+                                "password"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "description": "The user email.",
+                                    "type": "string",
+                                    "format": "email",
+                                    "example": "user@email.com"
+                                },
+                                "password": {
+                                    "description": "The user password.",
+                                    "type": "string",
+                                    "example": "123456"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "RegisterRequest": {
+                "description": "Register users.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "email",
+                                "username",
+                                "birthday",
+                                "password",
+                                "password_confirmation"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "description": "The user email.",
+                                    "type": "string",
+                                    "example": "user@email.com"
+                                },
+                                "username": {
+                                    "description": "The username.",
+                                    "type": "string",
+                                    "example": "username"
+                                },
+                                "birthday": {
+                                    "description": "The user birthday.",
+                                    "type": "string",
+                                    "example": "2000-01-01"
+                                },
+                                "password": {
+                                    "description": "The user password.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "123456"
+                                },
+                                "password_confirmation": {
+                                    "description": "The user password confirmation.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "123456"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "RequestResetPasswordRequest": {
+                "description": "Reset user password request.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "email"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "description": "The user email.",
+                                    "type": "string",
+                                    "format": "email",
+                                    "example": "user@email.com"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "ResetPasswordRequest": {
+                "description": "Reset user password request.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "token",
+                                "email",
+                                "password",
+                                "password_confirmation"
+                            ],
+                            "properties": {
+                                "token": {
+                                    "description": "The token.",
+                                    "type": "string",
+                                    "example": "jhkl31xfdc34g1fds5g1351gdf351dfg"
+                                },
+                                "email": {
+                                    "description": "The user email.",
+                                    "type": "string",
+                                    "example": "user@email.com"
+                                },
+                                "password": {
+                                    "description": "The user new password.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "123456"
+                                },
+                                "password_confirmation": {
+                                    "description": "The user new password confirmation.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "123456"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "OfferStatusRequest": {
+                "description": "Change offer status.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "status"
+                            ],
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "new",
+                                        "accepted",
+                                        "rejected"
+                                    ],
+                                    "example": "accepted"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TaskEditRequest": {
+                "description": "Edit task.",
+                "required": true,
+                "content": {
+                    "multipart/form-data": {
+                        "schema": {
+                            "required": [
+                                "name",
+                                "description",
+                                "status"
+                            ],
+                            "properties": {
+                                "logo": {
+                                    "description": "New task logo in base64 format.",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The task name.",
+                                    "type": "string",
+                                    "example": "test"
+                                },
+                                "description": {
+                                    "description": "The task description.",
+                                    "type": "string",
+                                    "example": "test description"
+                                },
+                                "category_id": {
+                                    "description": "The task category id.",
+                                    "type": "integer",
+                                    "example": "1"
+                                },
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "waiting",
+                                        "in progress",
+                                        "done",
+                                        "closed",
+                                        "hidden",
+                                        "archived"
+                                    ],
+                                    "example": "closed"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TaskRequest": {
+                "description": "Create new task.",
+                "required": true,
+                "content": {
+                    "multipart/form-data": {
+                        "schema": {
+                            "required": [
+                                "name",
+                                "description"
+                            ],
+                            "properties": {
+                                "logo": {
+                                    "description": "New task logo in base64 format.",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The task name.",
+                                    "type": "string",
+                                    "example": "test"
+                                },
+                                "description": {
+                                    "description": "The task description.",
+                                    "type": "string",
+                                    "example": "test description"
+                                },
+                                "category_id": {
+                                    "description": "The task category id.",
+                                    "type": "integer",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "TaskStatusRequest": {
+                "description": "Change task status.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "status"
+                            ],
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "waiting",
+                                        "in progress",
+                                        "done",
+                                        "closed",
+                                        "hidden",
+                                        "archived"
+                                    ],
+                                    "example": "closed"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "AddMessageRequest": {
+                "description": "New chat message.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "message"
+                            ],
+                            "properties": {
+                                "message": {
+                                    "description": "Chat message",
+                                    "type": "string",
+                                    "example": "Test message"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "AvatarRequest": {
+                "description": "Set avatar password request.",
+                "required": true,
+                "content": {
+                    "multipart/form-data": {
+                        "schema": {
+                            "required": [
+                                "avatar"
+                            ],
+                            "properties": {
+                                "avatar": {
+                                    "description": "New user avatar in base64 format.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "ChangePasswordRequest": {
+                "description": "Change user password request.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "password",
+                                "new_password",
+                                "new_password_confirmation"
+                            ],
+                            "properties": {
+                                "password": {
+                                    "description": "The user old password.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "123456"
+                                },
+                                "new_password": {
+                                    "description": "The user new password.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "12345678"
+                                },
+                                "new_password_confirmation": {
+                                    "description": "The user new password confirmation.",
+                                    "type": "string",
+                                    "format": "password",
+                                    "example": "12345678"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "UpdateUserRequest": {
+                "description": "Update user info.",
+                "required": true,
+                "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "required": [
+                                "username"
+                            ],
+                            "properties": {
+                                "username": {
+                                    "description": "The user username.",
+                                    "type": "string",
+                                    "format": "string",
+                                    "example": "test"
+                                },
+                                "biography": {
+                                    "description": "The user biography.",
+                                    "type": "string",
+                                    "format": "string",
+                                    "example": "test"
+                                },
+                                "country_id": {
+                                    "description": "The user country id.",
+                                    "type": "integer",
+                                    "format": "integer",
+                                    "example": "1"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication & Registration"
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+.user-detail__wrapper {
+    display: flex;
+    max-width: 102rem;
+    min-height: 100%;
+    background: #101625;
+    margin: 0 auto;
+    padding: 2.5rem 0
+}
+
+.user-info {
+    flex: 1;
+    min-height: 100%;
+    padding-left: 14rem;
+    padding-right: 2rem;
+}
+
+.user-info__avatar {
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.user-info__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info__avatar .icon {
+    font-size: 12rem;
+}
+
+.user-info__user-name {
+    font-family: $exo-700;
+    font-size: 2.7rem;
+    line-height: 3.2rem;
+    margin-bottom: 2.6rem;
+}
+
+.user-info__item {
+    margin-bottom: 2.2rem;
+}
+
+.user-info__item__label {
+    font-family: $exo-700;
+    margin-bottom: 1.2rem;
+}
+
+.user-statistics {
+    width: 25rem;
+    min-height: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 2rem;
+}
+
+@media (max-width: 1199px) {
+    .user-info {
+        padding-left: 6.5rem;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    .user-detail__wrapper {
+        display: block;
+        padding: 2.5rem 2rem;
+    }
+
+    .user-info {
+        padding: 0;
+    }
+
+    .user-info__avatar {
+        margin: 0 auto 1.2rem;
+    }
+
+    .user-info__user-name {
+        text-align: center;
+    }
+
+    .user-info__item__value--biography {
+        font-size: 1.6rem;
+    }
+
+    .user-statistics {
+        padding: 2rem 0 0;
+        margin: 0;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
